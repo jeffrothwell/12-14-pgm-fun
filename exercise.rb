@@ -53,5 +53,14 @@ north_trains.each do |trainx|
   north_train_names << trainx[:train]
 end
 
-puts north_trains
-puts north_train_names
+# north_train_names is now an array containing only the train numbers of north_trains
+
+east_train_names = []
+
+east_trains = train_data.find_all do |trainx|
+  trainx[:direction] == "east"
+end
+
+east_trains.each do |trainx|
+  east_train_names << trainx[:train]
+end
