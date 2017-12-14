@@ -82,3 +82,7 @@ end
 
 puts "Northbound trains:\n#{save_directions(train_data, "north")}"
 puts "Eastbound trains:\n#{save_directions(train_data, "east")}"
+
+#  now I will add a first_departure_time key/value pair to, say, the 3rd train in the array
+
+train_data[2][:first_departure_time] = 7
