@@ -64,3 +64,21 @@ end
 east_trains.each do |trainx|
   east_train_names << trainx[:train]
 end
+
+# here's the method to accomplish the above
+
+def save_directions(data, direction)
+  train_names = []
+
+  trains = data.find_all do |trainx|
+    trainx[:direction] == direction
+  end
+
+  trains.each do |trainx|
+    train_names << trainx[:train]
+  end
+  return train_names
+end
+
+puts "Northbound trains:\n#{save_directions(train_data, "north")}"
+puts "Eastbound trains:\n#{save_directions(train_data, "east")}"
