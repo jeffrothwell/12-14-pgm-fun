@@ -31,5 +31,27 @@ train80b = train_data.find do |trainx|
   trainx[:train] == "80B"
 end
 
-train80b_direction = train80b[:frequency_in_minutes]
-puts train80b_direction
+train80b_freq = train80b[:frequency_in_minutes]
+
+#  now save the direction of train 610
+train610 = train_data.find do |trainx|
+  trainx[:train] == "610"
+end
+
+train610_direction = train610[:direction]
+
+#Create an empty array. Iterate through each train and
+## add the name of the train into the array if it travels north.
+
+north_train_names = []
+
+north_trains = train_data.find_all do |trainx|
+  trainx[:direction] == "north"
+end
+# north_trains is now an array of hashes with only north-bound trains
+north_trains.each do |trainx|
+  north_train_names << trainx[:train]
+end
+
+puts north_trains
+puts north_train_names
